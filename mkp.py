@@ -95,7 +95,7 @@ if __name__ == '__main__':
         '-s',
         '--silence',
         action='store_true',
-        help='do not print to console'
+        help='Does not print password in console'
     )
 
     args = parser.parse_args()
