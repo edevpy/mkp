@@ -19,7 +19,9 @@ class PasswordCharacterError(PasswordError):
 
 def make_password(*, length: int = 16, delete: str = '') -> str:
     if length < 8:
-        raise PasswordLengthError('')
+        raise PasswordLengthError(
+            'password length must be greater than or equal to 8.'
+        )
 
 
     def get_char(seq: str) -> str:
@@ -38,7 +40,10 @@ def make_password(*, length: int = 16, delete: str = '') -> str:
     chars: list[str] = remove_chars(delete)
 
     if len(chars) < 4:
-        raise PasswordCharacterError('')
+        raise PasswordCharacterError(
+            'password must include uppercase and lowercase letters, digits '\
+            'and symbols.'
+        )
 
     password: list[str] = []
 
